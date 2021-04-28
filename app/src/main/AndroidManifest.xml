@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sixtv">
 
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 多设备支持,写死false -->
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+    <!-- 设置触摸屏为非必备条件 -->
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <!-- 这里的 android:banner="" 是必须的,给一张公司Logo就行 -->
+    <!-- TODO : 横幅应该是 xhdpi 资源，尺寸为 320 x 180 像素。文本必须包含在图片中。如果您的应用支持多种语言，对于带文本的横幅，您必须针对支持的每种语言提供单独的版本。 -->
     <application
         android:allowBackup="true"
+        android:banner="@mipmap/ic_launcher"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:logo="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SixTv" />
+        android:theme="@style/Theme.SixTv"
+        tools:ignore="AllowBackup">
 
+        <activity
+            android:label="@string/app_name"
+            android:name=".MainActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>
