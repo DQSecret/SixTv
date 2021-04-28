@@ -1,0 +1,4 @@
+<resources>
+
+    <style name="Theme.SixTv" parent="@style/Theme.Leanback" />
+</resources>
