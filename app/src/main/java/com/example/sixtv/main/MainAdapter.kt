@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sixtv.databinding.ItemSelectElementBinding
+import com.example.sixtv.detail.MenuDetailsActivity
 import com.example.sixtv.ext.toast
 import com.example.sixtv.network.Tv
 
@@ -35,10 +36,12 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.VH>() {
         }
 
         fun bind(item: Tv?) {
+            item ?: return
             binding.btnElements.apply {
-                text = item?.name ?: ""
+                text = item.name
                 setOnClickListener {
-                    toast("点击了: ${item.toString()}")
+                    // toast("点击了: $item")
+                    MenuDetailsActivity.start(it.context, item.id)
                 }
             }
         }

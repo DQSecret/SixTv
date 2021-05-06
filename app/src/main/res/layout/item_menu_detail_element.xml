@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.sixtv.detail.MenuItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_menu_item"
+    android:layout_height="78dp"
+    android:layout_width="match_parent" />

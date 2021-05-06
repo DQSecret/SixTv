@@ -35,7 +35,7 @@ class MainActivity : FragmentActivity() {
     private fun initObs() {
         // 监听状态
         viewModel.mResultStatusObs.observe(this, {
-            toast(it)
+            // toast(it)
         })
         // 填充结果
         viewModel.mResultContentObs.observe(this, {

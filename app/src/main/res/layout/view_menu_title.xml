@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#10212A"
+    android:layout_height="96dp"
+    android:layout_width="match_parent"
+    tools:layout_width="1280dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_width="wrap_content"
+        android:text="自酿啤酒名称"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_alcohol"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="760dp"
+        android:layout_width="wrap_content"
+        android:text="酒精度"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1033dp"
+        android:layout_width="wrap_content"
+        android:text="价格"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_single_cup"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="906dp"
+        android:layout_width="wrap_content"
+        android:text="单杯"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_price"
+        app:layout_constraintVertical_bias="0.2"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_a_liter"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="991dp"
+        android:layout_width="wrap_content"
+        android:text="1L"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_single_cup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_price"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_two_litres"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1089dp"
+        android:layout_width="wrap_content"
+        android:text="2L"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_a_liter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_price"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_cans"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1187dp"
+        android:layout_width="wrap_content"
+        android:text="易拉罐"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_two_litres"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_price"
+        tools:ignore="HardcodedText" />
+</androidx.constraintlayout.widget.ConstraintLayout>
