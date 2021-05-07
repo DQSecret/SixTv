@@ -46,9 +46,17 @@ class MenuItemView @JvmOverloads constructor(
         }
 
         binding.tvAlcohol.text = "abv.${item.abv}%"
-        binding.tvSingleCup.text = "¥ ${item.single}"
-        binding.tvALiter.text = "¥ ${item.l1}"
-        binding.tvTwoLitres.text = "¥ ${item.l2}"
-        binding.tvCans.text = "¥ ${item.cans}"
+        binding.tvSingleCup.text = formatPrice(item.single)
+        binding.tvALiter.text = formatPrice(item.l1)
+        binding.tvTwoLitres.text = formatPrice(item.l2)
+        binding.tvCans.text = formatPrice(item.cans)
+    }
+
+    private fun formatPrice(price: String?): String {
+        return if (price.isNullOrBlank()) {
+            ""
+        } else {
+            "¥ $price"
+        }
     }
 }

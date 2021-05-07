@@ -10,7 +10,7 @@
 
     <com.example.sixtv.detail.MenuTitleView
         android:id="@+id/view_menu_title"
-        android:layout_height="96dp"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,9 +30,11 @@
         android:layout_width="wrap_content"
         android:textColor="#ffffff"
         android:textSize="32sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="1920:1080" />
+        tools:text="1920:1080"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

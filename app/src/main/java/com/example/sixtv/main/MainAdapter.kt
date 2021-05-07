@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sixtv.databinding.ItemSelectElementBinding
-import com.example.sixtv.detail.MenuDetailsActivity
 import com.example.sixtv.ext.toast
 import com.example.sixtv.network.Tv
 
-class MainAdapter : RecyclerView.Adapter<MainAdapter.VH>() {
+class MainAdapter(
+    private val onItemClickCallback: (String) -> Unit,
+) : RecyclerView.Adapter<MainAdapter.VH>() {
 
     private val data = mutableListOf<Tv>()
 
@@ -19,19 +20,26 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.VH>() {
     }
 
     override fun getItemCount() = data.size
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VH.getInstance(parent)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        VH.getInstance(parent, onItemClickCallback)
+
     override fun onBindViewHolder(holder: VH, position: Int) = holder.bind(item = data[position])
 
     class VH(
-        private val binding: ItemSelectElementBinding
+        private val binding: ItemSelectElementBinding,
+        private val onItemClickCallback: (String) -> Unit,
     ) : RecyclerView.ViewHolder(binding.root) {
 
         companion object {
 
-            fun getInstance(parent: ViewGroup): VH {
+            fun getInstance(
+                parent: ViewGroup,
+                onItemClickCallback: (String) -> Unit,
+            ): VH {
                 val inflater = LayoutInflater.from(parent.context)
                 val binding = ItemSelectElementBinding.inflate(inflater, parent, false)
-                return VH(binding)
+                return VH(binding, onItemClickCallback)
             }
         }
 
@@ -40,8 +48,8 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.VH>() {
             binding.btnElements.apply {
                 text = item.name
                 setOnClickListener {
-                    // toast("点击了: $item")
-                    MenuDetailsActivity.start(it.context, item.id)
+                    toast("点击了: $item")
+                    onItemClickCallback(item.id)
                 }
             }
         }

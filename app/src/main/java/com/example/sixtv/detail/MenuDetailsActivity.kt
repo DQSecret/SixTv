@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentActivity
 import com.example.sixtv.databinding.ActivityMenuDetailsBinding
 import com.example.sixtv.ext.px2dp
 import com.example.sixtv.ext.screenSizePoint
+import com.example.sixtv.ext.toast
 
 class MenuDetailsActivity : FragmentActivity() {
 
@@ -57,7 +58,7 @@ class MenuDetailsActivity : FragmentActivity() {
     private fun initObs() {
         // 监听状态
         viewModel.mResultStatusObs.observe(this, {
-            // toast(it)
+            toast(it)
         })
         // 填充结果
         viewModel.mResultContentObs.observe(this, {

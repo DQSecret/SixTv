@@ -7,6 +7,9 @@ import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.sixtv.databinding.ActivityMainBinding
+import com.example.sixtv.detail.MenuDetailsActivity
+import com.example.sixtv.ext.load
+import com.example.sixtv.ext.save
 import com.example.sixtv.ext.toast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -17,7 +20,17 @@ class MainActivity : FragmentActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val viewModel by viewModels<MainViewModel>()
 
-    private val adapter by lazy { MainAdapter() }
+    private val adapter by lazy {
+        MainAdapter { tvId ->
+            MenuDetailsActivity.start(this, tvId)
+            SP_NAME.save(this, mapOf(SP_KEY to tvId), clear = true, now = true)
+        }
+    }
+
+    companion object {
+        private const val SP_NAME = "last_selected_menu"
+        private const val SP_KEY = "menu_id"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +38,7 @@ class MainActivity : FragmentActivity() {
         initView()
         initObs()
         onRefresh()
+        checkHistory()
     }
 
     private fun initView() {
@@ -35,12 +49,25 @@ class MainActivity : FragmentActivity() {
     private fun initObs() {
         // 监听状态
         viewModel.mResultStatusObs.observe(this, {
-            // toast(it)
+            toast(it)
         })
         // 填充结果
         viewModel.mResultContentObs.observe(this, {
             adapter.setData(it)
         })
+    }
+
+    private fun onRefresh() {
+        viewModel.getTvs()
+    }
+
+    private fun checkHistory() {
+        SP_NAME.load(this)[SP_KEY]?.takeIf {
+            it is String
+        }?.let {
+            val tvId = it as String
+            MenuDetailsActivity.start(this, tvId)
+        }
     }
 
     // region 刷新逻辑
@@ -55,10 +82,6 @@ class MainActivity : FragmentActivity() {
             }
         }
         return super.onKeyDown(keyCode, event)
-    }
-
-    private fun onRefresh() {
-        viewModel.getTvs()
     }
 
     // endregion
