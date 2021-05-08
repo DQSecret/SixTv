@@ -11,14 +11,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/title_ml_large_1"
         android:layout_width="wrap_content"
-        tools:text="自酿啤酒名称"
         android:textColor="#ffffff"
         android:textSize="@dimen/title_ts_large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintVertical_bias="0.4"
+        tools:ignore="HardcodedText"
+        tools:text="自酿啤酒名称" />
 
     <TextView
         android:id="@+id/tv_alcohol"
@@ -46,6 +46,7 @@
 
     <TextView
         android:id="@+id/tv_single_cup"
+        android:includeFontPadding="false"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/title_ml_small_1"
         android:layout_width="wrap_content"
@@ -60,6 +61,7 @@
 
     <TextView
         android:id="@+id/tv_a_liter"
+        android:includeFontPadding="false"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/title_ml_small_2"
         android:layout_width="wrap_content"
@@ -74,6 +76,7 @@
 
     <TextView
         android:id="@+id/tv_two_litres"
+        android:includeFontPadding="false"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/title_ml_small_3"
         android:layout_width="wrap_content"
@@ -88,6 +91,7 @@
 
     <TextView
         android:id="@+id/tv_cans"
+        android:includeFontPadding="false"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/title_ml_small_4"
         android:layout_width="wrap_content"

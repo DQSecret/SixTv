@@ -2,13 +2,13 @@
 <resources>
     <dimen name="title_height">72dp</dimen>
     <dimen name="title_ts_large">27sp</dimen>
-    <dimen name="title_ts_small">18sp</dimen>
+    <dimen name="title_ts_small">16sp</dimen>
     <dimen name="title_ml_large_1">45dp</dimen>
     <dimen name="title_ml_large_2">606dp</dimen>
     <dimen name="title_ml_large_3">789dp</dimen>
-    <dimen name="title_ml_small_1">712.5dp</dimen>
-    <dimen name="title_ml_small_2">769.5dp</dimen>
-    <dimen name="title_ml_small_3">837dp</dimen>
+    <dimen name="title_ml_small_1">705dp</dimen>
+    <dimen name="title_ml_small_2">762dp</dimen>
+    <dimen name="title_ml_small_3">829.5dp</dimen>
     <dimen name="title_ml_small_4">892.5dp</dimen>
 
     <dimen name="item_height">58.5dp</dimen>
@@ -23,8 +23,8 @@
     <dimen name="item_new_h">30dp</dimen>
     <dimen name="item_ml_gap_large">18dp</dimen>
     <dimen name="item_ml_3">606dp</dimen>
-    <dimen name="item_ml_4">712.5dp</dimen>
-    <dimen name="item_ml_5">769.5dp</dimen>
-    <dimen name="item_ml_6">837dp</dimen>
+    <dimen name="item_ml_4">705dp</dimen>
+    <dimen name="item_ml_5">762dp</dimen>
+    <dimen name="item_ml_6">829.5dp</dimen>
     <dimen name="item_ml_7">892.5dp</dimen>
 </resources>
