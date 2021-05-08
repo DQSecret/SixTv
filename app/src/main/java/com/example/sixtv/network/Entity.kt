@@ -18,6 +18,7 @@ data class Tv(
     val id: String = "",
     val name: String = "",
     val type: String = "",
+    val tvName: String = "",
 ) {
     fun getTypeFormat(): TvType? {
         return when (type) {
@@ -64,6 +65,10 @@ data class Menu(
 data class MenuEntity(
     val tv: Tv,
     val menu: List<Menu> = emptyList()
-)
+) {
+    companion object {
+        fun getSimple() = MenuEntity(Tv(), emptyList())
+    }
+}
 
 typealias MenuRepo = BaseData<MenuEntity>

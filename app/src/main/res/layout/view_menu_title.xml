@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/title_ml_large_1"
         android:layout_width="wrap_content"
-        android:text="自酿啤酒名称"
+        tools:text="自酿啤酒名称"
         android:textColor="#ffffff"
         android:textSize="@dimen/title_ts_large"
         app:layout_constraintBottom_toBottomOf="parent"

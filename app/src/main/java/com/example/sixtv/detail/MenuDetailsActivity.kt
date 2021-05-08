@@ -59,7 +59,8 @@ class MenuDetailsActivity : FragmentActivity() {
         })
         // 填充结果
         viewModel.mResultContentObs.observe(this, {
-            adapter.setData(it)
+            binding.viewMenuTitle.bindData(it.tv)
+            adapter.setData(it.menu)
         })
     }
 
