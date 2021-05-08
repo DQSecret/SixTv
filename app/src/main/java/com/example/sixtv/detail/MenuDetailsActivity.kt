@@ -6,8 +6,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.KeyEvent.KEYCODE_MENU
+import android.view.View
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
+import com.example.sixtv.BuildConfig
 import com.example.sixtv.databinding.ActivityMenuDetailsBinding
 import com.example.sixtv.ext.px2dp
 import com.example.sixtv.ext.screenSizePoint
@@ -32,7 +34,6 @@ class MenuDetailsActivity : FragmentActivity() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -40,11 +41,7 @@ class MenuDetailsActivity : FragmentActivity() {
         initView()
         initObs()
         onRefresh()
-
-        // 添加宽高的显示
-        val w = screenSizePoint.x.px2dp
-        val h = screenSizePoint.y.px2dp
-        binding.tvDimen.text = "$w x $h"
+        showDeviceDimen()
     }
 
     private fun initParams() {
@@ -66,6 +63,23 @@ class MenuDetailsActivity : FragmentActivity() {
         })
     }
 
+    private fun onRefresh() {
+        viewModel.getMenus(tvId)
+    }
+
+    /**
+     * 显示屏幕宽高
+     */
+    @SuppressLint("SetTextI18n")
+    private fun showDeviceDimen() {
+        if (BuildConfig.DEBUG) {
+            val w = screenSizePoint.x.px2dp
+            val h = screenSizePoint.y.px2dp
+            binding.tvDimen.text = "$w x $h"
+            binding.tvDimen.visibility = View.VISIBLE
+        }
+    }
+
     // region 刷新逻辑
 
     /**
@@ -78,9 +92,5 @@ class MenuDetailsActivity : FragmentActivity() {
             }
         }
         return super.onKeyDown(keyCode, event)
-    }
-
-    private fun onRefresh() {
-        viewModel.getMenus(tvId)
     }
 }
